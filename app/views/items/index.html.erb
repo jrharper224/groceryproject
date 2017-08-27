@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To Do</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="app.js"></script>
+
+</head>
+<body class="page">
+  <h1>What do you need?</h1>
+    <table>
+      <thead>
+        <tr>
+          <td>Item</td>
+          <td>Quantity</td>
+          <td>Store</td>
+        </tr>
+      </thead>
+      <tbody>
+      <% @items.each do |item| %>
+        <tr>
+          <td><%= item.item_name %></td>
+          <td id="amount"><%= item.quantity %></td>
+          <td><%= item.store %></td>
+          <td><a class="delete" href="/items/<%= item.id %>" data-method="delete">Delete</a>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+	<form action = "/items" method = "post">
+		<div class="item-row">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			<input type="text" placeholder="item" id="item" name="item_name" />
+			<input type="text" value="1" id="quantity-input" name="quantity" />
+			<input type="text" placeholder="store" id="store" name="store" />
+      <button id="submit" type="submit" class="btn btn-success">SUBMIT</button>
+		</div>
+	</form>
+
+    <h1>
+      Plan the most efficient route:
+    </h1>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPuxryoO4K6ZeB8fk3lzK2mAgCCKYcjt8&libraries=places&callback=initAutocomplete"
+     async defer></script>
+</body>
+</html>
