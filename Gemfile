@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -26,6 +26,7 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'rails-footnotes', '>=4.0.0', '<5'
+gem 'pg'
 
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
